@@ -36,3 +36,6 @@
 
 # Ignore data in CSV
 /db/takehome.csv    
+
+/app/assets/builds/*
+!/app/assets/builds/.keep
