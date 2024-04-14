@@ -3,7 +3,7 @@
 <% @addresses.each do |address| %>
     <div class="person">
         <div class="summary">
-            <h3><%= address.first_name %>  <%= address.last_name %> </h3>
+            <h3><%= "%s %s" % [address.first_name, address.last_name] %></h3>
             <p><%= address.address %></p>
         </div>
     </div>
