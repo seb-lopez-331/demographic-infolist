@@ -18,6 +18,8 @@ Things this README will cover:
 3.) Run rails db:setup on the command prompt.
 
 * How to run the test suite
+1.) Run asdf reshim
+2.) Run bin/dev on the command line
 
 * Services (job queues, cache servers, search engines, etc.)
 

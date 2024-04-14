@@ -1,8 +1,12 @@
-<h1> Addresses </h1>
+<h1 class="text-center"> Addresses </h1>
 
 <% @addresses.each do |address| %>
-    <div>
-        <h2><%= address.first_name %>  <%= address.last_name %> | </h2>
-        <%= address.address %>
-    </div>
+    <%= link_to address, class: "no-underline" do %>
+        <div class="max-w-sm mx-auto shadow-lg rounded-lg overflow-hidden hover:shadow-2xl">
+            <div class="text-center mx-auto">
+                <h3><%= "%s %s" % [address.first_name, address.last_name] %></h3>
+                <p><%= address.address %></p>
+            </div>
+        </div>
+    <% end %>
 <% end %>
