@@ -1,8 +1,10 @@
 <h1> Addresses </h1>
 
 <% @addresses.each do |address| %>
-    <div>
-        <h2><%= address.first_name %>  <%= address.last_name %> | </h2>
-        <%= address.address %>
+    <div class="person">
+        <div class="summary">
+            <h3><%= address.first_name %>  <%= address.last_name %> </h3>
+            <p><%= address.address %></p>
+        </div>
     </div>
 <% end %>
