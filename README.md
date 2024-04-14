@@ -13,6 +13,9 @@ Things this README will cover:
 * Database creation
 
 * Database initialization
+1.) If you do not currently own a copy of the takehome.csv file, please request a copy of it from me. This file contains the necessary data for this application to be usable.
+2.) Place the takehome.csv file inside the db directory.
+3.) Run rails db:setup on the command prompt.
 
 * How to run the test suite
 
