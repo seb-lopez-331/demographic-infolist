@@ -1,0 +1,8 @@
+<h1> Addresses </h1>
+
+<% @addresses.each do |address| %>
+    <div>
+        <h2><%= address.first_name %>  <%= address.last_name %> | </h2>
+        <%= address.address %>
+    </div>
+<% end %>
