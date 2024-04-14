@@ -4,7 +4,6 @@ This README would normally document whatever steps are necessary to get the
 application up and running.
 
 Things this README will cover:
-
 * Ruby version
 
 * System dependencies
