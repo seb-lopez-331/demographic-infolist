@@ -3,7 +3,7 @@
 <% @addresses.each do |address| %>
     <div class="person">
         <div class="summary">
-            <h3><%= "%s %s" % [address.first_name, address.last_name] %></h3>
+            <h3><%= link_to "%s %s" % [address.first_name, address.last_name], address %></h3>
             <p><%= address.address %></p>
         </div>
     </div>
