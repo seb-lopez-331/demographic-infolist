@@ -1,28 +1,19 @@
-# schoolstatus-take-home README
+# README for schoolstatus-take-home
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Overview:
+This application displays a list of names and addresses. Selecting and clicking an individual name/address card will navigate you to a page that displays detailed information about the displayed location. Thus, this application may help one understand the needs of a community better. Please refer to the items below to execute this project locally.
 
-Things this README will cover:
-* Ruby version
+Prerequisites:
+* asdf version: >=0.14.0
+* Ruby version: >=3.3.0
+* Rails version: >=7.1.3.2
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-1.) If you do not currently own a copy of the takehome.csv file, please request a copy of it from me. This file contains the necessary data for this application to be usable.
+Database initialization:
+1.) If you do not currently own a copy of the takehome.csv file, please request a copy of it. This file contains the necessary data for this application to be usable.
 2.) Place the takehome.csv file inside the db directory.
 3.) Run rails db:setup on the command prompt.
 
-* How to run the test suite
-1.) Run asdf reshim
-2.) Run bin/dev on the command line
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Running the project locally:
+1.) Run bin/dev on the command line
+    (If you run into any errors, please run asdf reshim and try again)
+2.) Once the build finishes, navigate to your favorite browser (mine is Google Chrome) and type into it http://localhost:3000.
