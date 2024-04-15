@@ -1,12 +1,30 @@
-<div class="details">
-    <h2>Basic Information</h2>
-    <p>Full Name: <%= "%s %s" % [@address.first_name, @address.last_name] %></p>
-    <p>Address: <%= @address.address %></p>
-
-    <h3>Educational attainment around <%= "%s, %s %s" % [@city, @state, @zipcode] %></h3>
-    <p>Total Educated: <%= @total %></p>
-    <p>Below High School: <%= @under_hs %></p>
-    <p>High School: <%= @hs_grad %></p>
-    <p>Some College or Associates Degree: <%= @some_college %></p>
-    <p>Bachelors Degree or Higher: <%= @bachelors %></p>
+<div class="mx-auto text-center">
+    <div>
+        <h2>Basic information</h2>
+        <p >Full Name: <%= "%s %s" % [@address.first_name, @address.last_name] %></p>
+        <p>Address: <%= @address.address %></p>
+    </div>
+    <div>
+        <h2>Demographic information about <%= "%s, %s %s" % [@city, @state, @zipcode] %> </h2>
+        <div>
+            <h3>Median Household Income</h3>
+            <p>$<%= @median_income %> USD</p>
+        </div>
+        <div>
+            <h3>Educational Attainment</h3>
+            <p>Total Educated: <%= @total_educated %></p>
+            <p>Below High School: <%= @under_hs %></p>
+            <p>High School: <%= @hs_grad %></p>
+            <p>Some College or Associates Degree: <%= @some_college %></p>
+            <p>Bachelors Degree or Higher: <%= @bachelors %></p>
+        </div>
+        <div>
+            <h3>Household Size</h3>
+            <p>Occupied Housing Units: <%= @occupied_units %></p>
+            <p>Number of 1 Person Households: <%= @one_person %></p>
+            <p>Number of 2 Person Households: <%= @two_people %></p>
+            <p>Number of 3 Person Households: <%= @three_people %></p>
+            <p>Number of 4 or More Person Households: <%= @four_or_more %></p>
+        </div>
+    </div>
 </div>
