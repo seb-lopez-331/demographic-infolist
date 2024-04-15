@@ -1,34 +1,26 @@
 require 'json'
 require 'net/http'
 
-##
-# This class is responsible for handling application routing.
 class AddressesController < ApplicationController
     CITY_INDEX = 1
     STATE_INDEX = 2
     ZIPCODE_INDEX = 3
 
-    ##
-    # A general-purpose utility function that is responsible for gathering
-    # necessary information from the passed in URL.
-    # 
-    # @param [String, #url] a URL from the US Census API that includes a specified zip code.
-    #
-    # It's important to note that this function expects the response body to resemble the following
-    #
-    # The response body will look something like this:
-    # [
-    #    [
-    #        "S2301_C01_031E",
-    #        "zip code tabulation area"
-    #    ],
-    #    [
-    #        "20926", <-- desired field
-    #        "30165" <-- zip code
-    #    ]
-    # ]
-    # Hence why indexing at [1][0] is justified.
+    # Utility functions
     def get_info(url)
+        """
+        The response body will look something like this
+        [
+            [
+                \"S2301_C01_031E\",
+                \"zip code tabulation area\"
+            ],
+            [
+                \"20926\",
+                \"30165\"
+            ]
+        ]
+        """
         req = Net::HTTP::Get.new(url.request_uri)
         http = Net::HTTP.new(url.host, url.port)
         http.use_ssl = (url.scheme == "https")
@@ -37,13 +29,6 @@ class AddressesController < ApplicationController
         return parsed[1][0].to_i # This returns the subpopulation
     end
 
-    ##
-    # A utility function that returns subpopulations for different groups within a
-    # zip code. This function is used for gathering subpopulations of educational attainments
-    # and household sizes.
-    #
-    # @param [String, #zipcode] a valid zip code
-    # @param [[]String, #groups] an array of different groups (defined by the US Census API)
     def get_subpopulations(zipcode, groups)
         subpopulations = []
 
@@ -55,28 +40,18 @@ class AddressesController < ApplicationController
         return subpopulations
     end
 
-    ##
-    # A utility function that returns the median income for a given zip code
-    #
-    # @param [String, #zipcode] a valid zip code
     def get_median_income(zipcode)
         group = "S1901_C01_012E"
         url = URI.parse('https://api.census.gov/data/2022/acs/acs5/subject?get=%s&for=zip+code+tabulation+area:%s' % [group, zipcode])
         return get_info(url)
     end
 
-    # Controller functions
 
-    ##
-    # This function defines what is done on the main page. It loads up all addresses from the address database.
+    # Controller functions
     def index
         @addresses = Address.all
     end
 
-    ##
-    # This function defines what is shown once a user clicks on an address in the main page. Not only does it display basic
-    # information such as the address and name, but also makes use of the utility functions defined above to gather 
-    # demographic information from the US Census API for the address's zip code.
     def show
         @address = Address.find(params[:id])
         
@@ -105,6 +80,20 @@ class AddressesController < ApplicationController
         @three_people = household_size_subpopulations[3]
         @four_or_more = household_size_subpopulations[4]
 
+        # We can show 
+            # Educational attainment
+            # Median income levels
+            # Household size
+
+        """
+        Procedure:
+        2.) Once we have the zip code
+        S2301_C01_031E	Estimate!!Total!!EDUCATIONAL ATTAINMENT!!Population 25 to 64 years	Employment Status	not required	S2301_C01_031EA, S2301_C01_031M, S2301_C01_031MA	0	int	S2301
+        S2301_C01_032E	Estimate!!Total!!EDUCATIONAL ATTAINMENT!!Population 25 to 64 years!!Less than high school graduate	Employment Status	not required	S2301_C01_032EA, S2301_C01_032M, S2301_C01_032MA	0	int	S2301
+        S2301_C01_033E	Estimate!!Total!!EDUCATIONAL ATTAINMENT!!Population 25 to 64 years!!High school graduate (includes equivalency)	Employment Status	not required	S2301_C01_033EA, S2301_C01_033M, S2301_C01_033MA	0	int	S2301
+        S2301_C01_034E	Estimate!!Total!!EDUCATIONAL ATTAINMENT!!Population 25 to 64 years!!Some college or associate's degree	Employment Status	not required	S2301_C01_034EA, S2301_C01_034M, S2301_C01_034MA	0	int	S2301
+        S2301_C01_035E	Estimate!!Total!!EDUCATIONAL ATTAINMENT!!Population 25 to 64 years!!Bachelor's degree or higher
+        """
     rescue ActiveRecord::RecordNotFound
         redirect_to root_path 
     end
