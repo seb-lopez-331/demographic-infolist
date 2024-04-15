@@ -8,6 +8,10 @@ This application displays a list of names and addresses. Selecting and clicking 
 * Ruby version: >=3.3.0
 * Rails version: >=7.1.3.2
 
+## Cloning the project ##
+1. Run `git clone https://github.com/seb-lopez-331/schoolstatus-take-home.git`
+2. Run `cd schoolstatus-take-home`
+
 ## Database initialization ##
 1. If you do not currently own a copy of the `takehome.csv` file, please request a copy of it. This file contains the necessary data for this application to be usable.
 2. Place the `takehome.csv` file inside the `db` directory.
