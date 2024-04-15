@@ -9,11 +9,11 @@ This application displays a list of names and addresses. Selecting and clicking 
 * Rails version: >=7.1.3.2
 
 ## Database initialization ##
-1. If you do not currently own a copy of the takehome.csv file, please request a copy of it. This file contains the necessary data for this application to be usable.
-2. Place the takehome.csv file inside the db directory.
-3. Run rails db:setup on the command prompt.
+1. If you do not currently own a copy of the `takehome.csv` file, please request a copy of it. This file contains the necessary data for this application to be usable.
+2. Place the `takehome.csv` file inside the `db` directory.
+3. Run `rails db:setup` on the command prompt.
 
 ## Running the project locally ##
-1. Run bin/dev on the command line
-    (If you run into any errors, please run asdf reshim and try again)
-2. Once the build finishes, navigate to your favorite browser (mine is Google Chrome) and type into it http://localhost:3000.
+1. Run `bin/dev` on the command line.
+    (If you run into any errors, please run `asdf reshim` and try again)
+2. Once the build finishes, navigate to your favorite browser (mine is Google Chrome) and type http://localhost:3000 into it.
