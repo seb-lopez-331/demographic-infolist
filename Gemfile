@@ -67,3 +67,5 @@ group :test do
 end
 
 gem "tailwindcss-rails", "~> 2.4"
+
+gem 'fips-county-codes', '~> 0.5.0'
