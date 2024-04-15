@@ -1,4 +1,12 @@
 <div class="details">
-    <h2><%= "%s %s" % [@address.first_name, @address.last_name] %></h2>
-    <p><%= @address.address %></p>
+    <h2>Basic Information</h2>
+    <p>Full Name: <%= "%s %s" % [@address.first_name, @address.last_name] %></p>
+    <p>Address: <%= @address.address %></p>
+
+    <h3>Educational attainment around <%= "%s, %s %s" % [@city, @state, @zipcode] %></h3>
+    <p>Total Educated: <%= @total %></p>
+    <p>Below High School: <%= @under_hs %></p>
+    <p>High School: <%= @hs_grad %></p>
+    <p>Some College or Associates Degree: <%= @some_college %></p>
+    <p>Bachelors Degree or Higher: <%= @bachelors %></p>
 </div>
