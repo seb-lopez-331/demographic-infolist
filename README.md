@@ -1,4 +1,4 @@
-# README for schoolstatus-take-home
+# demographic-infolist
 
 ## Overview ##
 This application displays a list of names and addresses. Selecting and clicking an individual name/address card will navigate you to a page that displays detailed information about the displayed location. Thus, this application may help one understand the needs of a community better. Please refer to the items below to execute this project locally.
