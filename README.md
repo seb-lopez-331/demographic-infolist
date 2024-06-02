@@ -9,12 +9,12 @@ This application displays a list of names and addresses. Selecting and clicking 
 * Rails version: >=7.1.3.2
 
 ## Cloning the project ##
-1. Run `git clone https://github.com/seb-lopez-331/schoolstatus-take-home.git`
-2. Run `cd schoolstatus-take-home`
+1. Run `git clone git@github.com:seb-lopez-331/demographic-infolist.git`
+2. Run `cd demographic-infolist`
 
 ## Database initialization ##
-1. If you do not currently own a copy of the `takehome.csv` file, please request a copy of it. This file contains the necessary data for this application to be usable.
-2. Place the `takehome.csv` file inside the `db` directory.
+1. If you do not currently own a copy of the `demographics.csv` file, please request a copy of it. This file contains the necessary data for this application to be usable.
+2. Place the `demographics.csv` file inside the `db` directory.
 3. Run `rails db:setup` on the command prompt.
 
 ## Running the project locally ##
